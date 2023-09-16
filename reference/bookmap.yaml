@@ -1,0 +1,110 @@
+openapi: 3.0.0
+x-stoplight:
+  id: ks71dapz3dof1
+info:
+  title: bookmap
+  version: '1.0'
+servers:
+  - url: 'http://localhost:3000'
+paths:
+  /api/roadmaps:
+    get:
+      summary: Get All Roadmap
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  roadmaps:
+                    type: array
+                    x-stoplight:
+                      id: ekffesig3hq0l
+                    items:
+                      $ref: '#/components/schemas/Roadmap'
+              examples:
+                Example 1:
+                  value:
+                    roadmaps:
+                      - id: string
+                        title: string
+      operationId: get-api-roadmaps
+      x-stoplight:
+        id: yt9fc0n4j9fwo
+      description: ''
+components:
+  schemas:
+    User:
+      title: User
+      type: object
+      description: ''
+      x-examples:
+        Alice Smith:
+          id: 142
+          firstName: Alice
+          lastName: Smith
+          email: alice.smith@gmail.com
+          dateOfBirth: '1997-10-31'
+          emailVerified: true
+          signUpDate: '2019-08-24'
+      properties:
+        id:
+          type: integer
+          description: Unique identifier for the given user.
+          x-stoplight:
+            id: 9mqg8he2omjyv
+        firstName:
+          type: string
+          x-stoplight:
+            id: voydser2jpt20
+        lastName:
+          type: string
+          x-stoplight:
+            id: 4s8cvnydutu98
+        email:
+          type: string
+          format: email
+          x-stoplight:
+            id: llxk4dwz7qnzs
+        dateOfBirth:
+          type: string
+          format: date
+          example: '1997-10-31'
+          x-stoplight:
+            id: y1autyh2jnwgq
+        emailVerified:
+          type: boolean
+          description: Set to true if the user's email has been verified.
+          x-stoplight:
+            id: wdyc61jw8a563
+        createDate:
+          type: string
+          format: date
+          description: The date that the user was created.
+          x-stoplight:
+            id: svsnkyrqbkplc
+      required:
+        - id
+        - firstName
+        - lastName
+        - email
+        - emailVerified
+      x-stoplight:
+        id: j40tx35c5wh1i
+    Roadmap:
+      title: Roadmap
+      x-stoplight:
+        id: a7pkck6ydqdqx
+      type: object
+      properties:
+        id:
+          type: string
+          x-stoplight:
+            id: 67wu94x8pv1ud
+        title:
+          type: string
+          x-stoplight:
+            id: yaogayy8o68i9
