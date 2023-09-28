@@ -18,7 +18,7 @@ type GetApiRoadmapsResponse struct {
 func (*BookMapImpl) GetApiRoadmaps(ctx echo.Context) error {
 	return ctx.JSON(http.StatusOK, GetApiRoadmapsResponse{
 		Title:       "golang roadmap",
-		Description: "",
+		Description: "test desc",
 	})
 }
 
