@@ -47,3 +47,5 @@ go.work
 
 /postgres-data
 /tmp
+/output
+/driver

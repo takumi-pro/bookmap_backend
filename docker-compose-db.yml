@@ -1,0 +1,20 @@
+version: '3.8'
+services:
+  # PostgreSQL コンテナの設定
+  db:
+    image: postgres:15.4
+    container_name: bookmap_db
+    environment:
+      POSTGRES_DB: bookmap_db
+      POSTGRES_USER: takumi
+      POSTGRES_PASSWORD: takumi
+    ports:
+      - "5434:5432"
+    volumes:
+      - ./postgres-data:/var/lib/postgresql/data
+    networks:
+      - dev_bookmap
+
+networks:
+  dev_bookmap:
+    external: true
