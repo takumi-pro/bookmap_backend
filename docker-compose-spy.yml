@@ -1,0 +1,32 @@
+version: '3.8'
+services:
+  schemaspy:
+    build:
+      context: .
+      dockerfile: ./docker/schemaspy/Dockerfile
+    image: schemaspy/schemaspy
+    container_name: spy
+    tty: true
+    volumes:
+      - ./output:/output
+      - ./schemaspy.properties:/schemaspy.properties
+      - ./driver/postgresql-42.3.7.jar:/driver/postgresql.jar
+    command: "java -jar schemaspy.jar"
+    networks:
+      - dev_bookmap
+
+  nginx_schemaspy:
+    image: nginx
+    container_name: "nginx_schemaspy"
+    depends_on:
+      - schemaspy
+    ports:
+      - "8080:80"
+    volumes:
+      - ./output:/usr/share/nginx/html
+    networks:
+      - dev_bookmap
+
+networks:
+  dev_bookmap:
+    external: true
