@@ -18,10 +18,10 @@ jobs:
       - name: Convert YML toHTML
         run: |
           npm install -g redoc-cli
-          redoc-cli bundle reference/bookmap.yaml -o docs/index.html
+          redoc-cli bundle reference/bookmap.yaml -o ./docs/index.html
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: docs
+          publish_dir: ./docs
