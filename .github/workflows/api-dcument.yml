@@ -6,6 +6,7 @@ on:
       - main
     paths:
       - 'reference/bookmap.yaml'
+  workflow_dispatch:
 
 jobs:
   build:
