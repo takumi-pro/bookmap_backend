@@ -2,8 +2,8 @@ name: API Document Hosting
 
 on:
   push:
-    paths:
-      - 'reference/bookmap.yaml'
+    # paths:
+    #   - 'reference/bookmap.yaml'
   workflow_dispatch:
 
 jobs:
